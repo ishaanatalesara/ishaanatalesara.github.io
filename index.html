@@ -9,7 +9,8 @@
     :root {
       --text: #111;
       --muted: #666;
-      --link: #0077cc; /* prettier blue for all links */
+      --blue-link: #0077cc; /* pretty blue for paper links */
+      --yellow-link: #c79300; /* dark yellow for everything else */
       --border: #eaeaea;
     }
     * { box-sizing: border-box; }
@@ -53,8 +54,24 @@
     }
     .tagline { margin: 2px 0; color: var(--muted); font-size: .95rem; text-align: left; }
     .quicklinks { list-style: none; padding: 0; margin: 12px 0 0; display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
-    .quicklinks a { color: var(--link); text-decoration: none; }
-    .quicklinks a:hover { text-decoration: none; }
+
+    /* Unified link styling */
+    a {
+      color: var(--yellow-link);
+      text-decoration: none;
+    }
+    a:hover {
+      color: #946b00; /* darker golden hover */
+      text-decoration: none;
+    }
+
+    /* Paper title links use blue */
+    .paper-title a {
+      color: var(--blue-link);
+    }
+    .paper-title a:hover {
+      color: #005999;
+    }
 
     main.content { padding: 28px 0; max-width: 760px; }
     section { margin: 24px 0; }
@@ -64,12 +81,10 @@
     .papers { list-style: none; padding: 0; margin: 0; }
     .paper { margin: 14px 0 18px; }
     .paper-title { font-weight: 600; }
-    .paper-title a { color: var(--link); text-decoration: none; }
-    .paper-title a:hover { text-decoration: none; }
     .paper-meta { color: var(--muted); margin-left: 6px; }
 
     details { margin-top: 6px; }
-    details > summary { cursor: pointer; list-style: none; display: inline-block; user-select: none; color: var(--link); text-decoration: none; }
+    details > summary { cursor: pointer; list-style: none; display: inline-block; user-select: none; color: var(--yellow-link); }
     details > summary::after { content: " ▾"; color: var(--muted); }
     details[open] > summary::after { content: " ▴"; }
     details .abs { margin: 8px 0 0; color: #222; }
@@ -152,7 +167,7 @@
             <span class="paper-title">
               <a href="https://www.aeaweb.org/articles?id=10.1257/app.20200210" target="_blank" rel="noopener">Inversions in US Presidential Elections: 1836–2016</a>
             </span>
-            <span class="paper-meta"> (with Michael Geruso and Dean Spears) </span>
+            <span class="paper-meta"> (with Michael Geruso and Dean Spears). <em>American Economic Journal: Applied Economics</em>, vol. 14, January 2022.</span>
             <details>
               <summary>Abstract</summary>
               <div class="abs">
