@@ -21,60 +21,51 @@
       background: #fff;
     }
 
-    /* Centered two-column wrapper */
     .wrapper {
       display: grid;
       grid-template-columns: 260px 1fr;
       gap: 28px;
-      max-width: 1000px;       /* overall page width */
-      margin: 0 auto;          /* centers the grid */
-      padding: 0 20px;         /* side padding on small screens */
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
     @media (max-width: 800px) {
       .wrapper { grid-template-columns: 1fr; }
       aside.sidebar { position: relative; top: auto; height: auto; }
     }
 
-    /* Sticky left column (no vertical line) */
     aside.sidebar {
       padding: 24px 0;
       position: sticky;
       top: 0;
-      height: 100vh;           /* fill viewport height */
+      height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: flex-start; /* left-align content */
+      align-items: flex-start;
     }
     .name { font-size: 1.6rem; margin: 0 0 12px; text-align: left; }
     .headshot {
-      width: 180px;            /* control width */
-      height: auto;            /* keep natural aspect ratio */
-      object-fit: contain;     /* no cropping */
-      border-radius: 12px;
+      width: 180px;
+      height: auto;
+      object-fit: contain;
       border: 1px solid var(--border);
-      margin: 0 0 8px;         /* space below photo */
+      margin: 0 0 8px;
     }
     .tagline { margin: 8px 0 16px; color: var(--muted); font-size: .95rem; text-align: left; }
     .quicklinks { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
     .quicklinks a { color: var(--link); text-decoration: none; }
     .quicklinks a:hover { text-decoration: underline; }
 
-    /* Right column */
     main.content { padding: 28px 0; max-width: 760px; }
     section { margin: 24px 0; }
     h2 { font-size: 1.25rem; margin: 0 0 8px; }
     .bio { margin: 0 0 12px; }
 
-    /* Papers */
     .papers { list-style: none; padding: 0; margin: 0; }
     .paper { margin: 14px 0 18px; }
     .paper-title { font-weight: 600; }
     .paper-meta { color: var(--muted); margin-left: 6px; }
-    .paper-links { display: inline-flex; gap: 10px; margin-left: 8px; }
-    .paper-links a { color: var(--link); text-decoration: none; }
-    .paper-links a:hover { text-decoration: underline; }
 
-    /* Collapsible abstracts */
     details { margin-top: 6px; }
     details > summary { cursor: pointer; list-style: none; display: inline-block; user-select: none; color: var(--link); }
     details > summary::after { content: " ▾"; color: var(--muted); }
@@ -86,7 +77,6 @@
 </head>
 <body>
   <div class="wrapper">
-    <!-- LEFT: sticky photo + name + links -->
     <aside class="sidebar">
       <h1 class="name">Ishaana Talesara</h1>
       <img src="headshot.jpg" alt="Headshot of Ishaana Talesara" class="headshot" />
@@ -99,14 +89,13 @@
       </ul>
     </aside>
 
-    <!-- RIGHT: content -->
     <main class="content">
       <section class="bio">
         <p>I am a PhD candidate in Economics at MIT. My research is in labor economics and macroeconomics. Before my PhD, I completed my undergraduate education at The University of Texas at Austin.</p>
       </section>
 
       <section id="research">
-        <h2>Research</h2>
+        <h2>Research Papers</h2>
         <ul class="papers">
           <li class="paper">
             <span class="paper-title">
@@ -116,15 +105,14 @@
             <details>
               <summary>Abstract</summary>
               <div class="abs">
-                <p>How important are social norms in shaping women’s labor supply relative to neo-classical economic forces? The widely studied "breadwinner norm" holds that it is socially undesirable for married women to earn more than their husbands. We test this prediction using an experiment in India. We randomly vary wage offers for salaried jobs among married women. If the norm binds, labor supply should be discontinuous or flatten when women are offered wages above their husbands' income. We find no evidence that women withdraw from the labor force when offered wages that exceed their husbands’ incomes and can reject negative discontinuities as small as 1.5 percentage points. Instead, labor supply is highly responsive to wages, consistent with standard economic models. These findings hold even in the most conservative households.
-</p>
+                <p>How important are social norms in shaping women’s labor supply relative to neo-classical economic forces? The widely studied "breadwinner norm" holds that it is socially undesirable for married women to earn more than their husbands. We test this prediction using an experiment in India. We randomly vary wage offers for salaried jobs among married women. If the norm binds, labor supply should be discontinuous or flatten when women are offered wages above their husbands' income. We find no evidence that women withdraw from the labor force when offered wages that exceed their husbands’ incomes and can reject negative discontinuities as small as 1.5 percentage points. Instead, labor supply is highly responsive to wages, consistent with standard economic models. These findings hold even in the most conservative households.</p>
               </div>
             </details>
           </li>
 
           <li class="paper">
             <span class="paper-title">Worker Beliefs about Employment Risk</span>
-            <span class="paper-meta">— Job Market Paper (draft coming soon)</span>
+            <span class="paper-meta"> — <em>Job Market Paper</em> (draft coming soon)</span>
             <details>
               <summary>Abstract</summary>
               <div class="abs">
@@ -132,10 +120,15 @@
               </div>
             </details>
           </li>
+        </ul>
+      </section>
 
+      <section id="wip">
+        <h2>Works in Progress</h2>
+        <ul class="papers">
           <li class="paper">
             <span class="paper-title">Tipped Minimum Wage and Firm Outcomes</span>
-            <span class="paper-meta">(with coauthors) — In progress</span>
+            <span class="paper-meta">(with coauthors)</span>
             <details>
               <summary>Abstract</summary>
               <div class="abs"><p>Work‑in‑progress abstract placeholder.</p></div>
