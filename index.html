@@ -6,7 +6,6 @@
   <title>Ishaana Talesara — Economist</title>
   <meta name="description" content="Personal academic website: research, teaching, and contact." />
   <style>
-    /* ---- Minimal, clean typographic style (no boxes) ---- */
     :root {
       --text: #111;
       --muted: #666;
@@ -19,46 +18,36 @@
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       color: var(--text);
       line-height: 1.6;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 28px;
     }
-    .wrap {
-      width: min(860px, 92vw);
-      margin: 0 auto;
-      padding: 28px 0 40px;
+    @media (max-width: 800px) {
+      body { grid-template-columns: 1fr; }
+      aside.sidebar { position: relative; top: auto; height: auto; }
     }
-    header.site {
-      padding: 10px 0 16px;
-      border-bottom: 1px solid var(--border);
-    }
-    .name { font-size: clamp(1.8rem, 3vw, 2.2rem); margin: 0; }
-    .tagline { margin: 4px 0 0; color: var(--muted); }
-    nav.top {
-      margin-top: 10px;
-      display: flex; flex-wrap: wrap; gap: 14px;
-    }
-    nav.top a { color: var(--link); text-decoration: none; }
-    nav.top a:hover { text-decoration: underline; }
 
-    main { padding-top: 20px; }
-
-    /* Sections */
-    section { margin: 24px 0; }
-    h2 { font-size: 1.25rem; margin: 0 0 8px; }
-
-    /* Bio as plain paragraph (no label/box) */
-    .bio { margin: 0 0 12px; }
-
-    /* Headshot + quick links inline on wide screens */
-    .intro {
-      display: grid; gap: 16px; align-items: start;
-      grid-template-columns: 130px 1fr; /* image + text */
+    aside.sidebar {
+      padding: 24px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; /* left align */
     }
-    @media (max-width: 680px) { .intro { grid-template-columns: 1fr; } }
-    .headshot { width: 130px; height: 130px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); }
-    .quicklinks { margin: 6px 0 0; padding: 0; list-style: none; display: flex; gap: 12px; flex-wrap: wrap; }
+    .headshot { width: 180px; height: 180px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 8px; }
+    .name { font-size: 1.6rem; margin: 0 0 12px; text-align: left; }
+    .tagline { margin: 8px 0 16px; color: var(--muted); font-size: .95rem; text-align: left; }
+    .quicklinks { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
     .quicklinks a { color: var(--link); text-decoration: none; }
     .quicklinks a:hover { text-decoration: underline; }
 
-    /* Papers */
+    main.content { padding: 28px; max-width: 760px; }
+    section { margin: 24px 0; }
+    h2 { font-size: 1.25rem; margin: 0 0 8px; }
+    .bio { margin: 0 0 12px; }
+
     .papers { list-style: none; padding: 0; margin: 0; }
     .paper { margin: 14px 0 18px; }
     .paper-title { font-weight: 600; }
@@ -66,124 +55,91 @@
     .paper-links { display: inline-flex; gap: 10px; margin-left: 8px; }
     .paper-links a { color: var(--link); text-decoration: none; }
     .paper-links a:hover { text-decoration: underline; }
-
-    /* Collapsible abstract */
     details { margin-top: 6px; }
     details > summary {
       cursor: pointer;
       list-style: none;
-      position: relative;
       display: inline-block;
       user-select: none;
       color: var(--link);
     }
-    details > summary::marker { display: none; }
-    details > summary::after {
-      content: " ▾"; /* caret */
-      color: var(--muted);
-    }
+    details > summary::after { content: " ▾"; color: var(--muted); }
     details[open] > summary::after { content: " ▴"; }
     details .abs { margin: 8px 0 0; color: #222; }
-
-    /* Teaching list */
-    .teaching ul { margin: 8px 0 0; }
 
     footer.site { border-top: 1px solid var(--border); margin-top: 24px; padding-top: 16px; color: var(--muted); font-size: .95rem; }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header class="site">
-      <h1 class="name">Ishaana Talesara</h1>
-      <p class="tagline">PhD Candidate in Economics, MIT</p>
-      <nav class="top">
-        <a href="#research">Research</a>
-        <a href="#teaching">Teaching</a>
-        <a href="#cv">CV</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+  <aside class="sidebar">
+    <h1 class="name">Ishaana Talesara</h1>
+    <img src="headshot.jpg" alt="Headshot of Ishaana Talesara" class="headshot" />
+    <p class="tagline">PhD Candidate in Economics, MIT</p>
+    <ul class="quicklinks">
+      <li><a href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar</a></li>
+      <li><a href="https://ideas.repec.org/" target="_blank" rel="noopener">RePEc/IDEAS</a></li>
+      <li><a href="https://github.com/ishaanatalesara" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="mailto:ishaanatalesara@mit.edu">Email</a></li>
+    </ul>
+  </aside>
 
-    <main>
-      <!-- Plain bio (no label) + headshot/links -->
-      <section class="intro">
-        <img src="headshot.jpg" alt="Headshot of Ishaana Talesara" class="headshot" />
-        <div>
-          <p class="bio">I am a PhD candidate in Economics at MIT. My research is in labor economics and macroeconomics. Before my PhD, I completed my undergraduate education at The University of Texas at Austin.</p>
-          <ul class="quicklinks">
-            <li><a href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar</a></li>
-            <li><a href="https://ideas.repec.org/" target="_blank" rel="noopener">RePEc/IDEAS</a></li>
-            <li><a href="https://github.com/ishaanatalesara" target="_blank" rel="noopener">GitHub</a></li>
-            <li><a href="mailto:ishaanatalesara@mit.edu">Email</a></li>
-          </ul>
-        </div>
-      </section>
+  <main class="content">
+    <section class="bio">
+      <p>I am a PhD candidate in Economics at MIT. My research is in labor economics and macroeconomics. Before my PhD, I completed my undergraduate education at The University of Texas at Austin.</p>
+    </section>
 
-      <section id="research">
-        <h2>Research</h2>
-        <ul class="papers">
-          <li class="paper">
-            <span class="paper-title">
-              <a href="breadwinning.pdf" target="_blank" rel="noopener">Breadwinning Norms: Experimental Evidence from India</a>
-            </span>
-            <span class="paper-meta">(with Kailash Rajah) — Draft</span>
-            <span class="paper-links">
-              <!-- add/remove links as needed -->
-              <!-- <a href="#">Online appendix</a> -->
-              <!-- <a href="#">Slides</a> -->
-            </span>
-            <details>
-              <summary>Abstract</summary>
-              <div class="abs">
-                <p>Short abstract goes here. You can include 3–6 lines summarizing the question, design, and main finding. Keep it concise, with one key number if possible.</p>
-              </div>
-            </details>
-          </li>
+    <section id="research">
+      <h2>Research</h2>
+      <ul class="papers">
+        <li class="paper">
+          <span class="paper-title">
+            <a href="breadwinning.pdf" target="_blank" rel="noopener">Breadwinning Norms: Experimental Evidence from India</a>
+          </span>
+          <span class="paper-meta">(with Kailash Rajah) — Draft</span>
+          <details>
+            <summary>Abstract</summary>
+            <div class="abs">
+              <p>Short abstract goes here. You can include 3–6 lines summarizing the question, design, and main finding. Keep it concise, with one key number if possible.</p>
+            </div>
+          </details>
+        </li>
 
-          <li class="paper">
-            <span class="paper-title">Worker Beliefs about Employment Risk </span>
-            <span class="paper-meta">— Job Market Paper (draft coming soon)</span>
-            <span class="paper-links">
-              <!-- <a href="jmp.pdf" target="_blank" rel="noopener">PDF</a> -->
-              <!-- <a href="slides_jmp.pdf" target="_blank" rel="noopener">Slides</a> -->
-            </span>
-            <details>
-              <summary>Abstract</summary>
-              <div class="abs">
-                <p>JMP abstract placeholder. We’ll add the actual text once the draft is ready.</p>
-              </div>
-            </details>
-          </li>
+        <li class="paper">
+          <span class="paper-title">Worker Beliefs about Employment Risk</span>
+          <span class="paper-meta">— Job Market Paper (draft coming soon)</span>
+          <details>
+            <summary>Abstract</summary>
+            <div class="abs">
+              <p>JMP abstract placeholder. We’ll add the actual text once the draft is ready.</p>
+            </div>
+          </details>
+        </li>
 
-          <li class="paper">
-            <span class="paper-title">Tipped Minimum Wage and Firm Outcomes</span>
-            <span class="paper-meta">(with coauthors) — In progress</span>
-            <details>
-              <summary>Abstract</summary>
-              <div class="abs">
-                <p>Work‑in‑progress abstract placeholder.</p>
-              </div>
-            </details>
-          </li>
-        </ul>
-      </section>
+        <li class="paper">
+          <span class="paper-title">Tipped Minimum Wage and Firm Outcomes</span>
+          <span class="paper-meta">(with coauthors) — In progress</span>
+          <details>
+            <summary>Abstract</summary>
+            <div class="abs"><p>Work‑in‑progress abstract placeholder.</p></div>
+          </details>
+        </li>
+      </ul>
+    </section>
 
+    <section id="cv">
+      <h2>CV</h2>
+      <p><a href="cv.pdf" target="_blank" rel="noopener">Download CV (PDF)</a></p>
+    </section>
 
-      <section id="cv">
-        <h2>CV</h2>
-        <p><a href="cv.pdf" target="_blank" rel="noopener">Download CV (PDF)</a></p>
-      </section>
-
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:talesara@mit.edu">talesara@mit.edu</a><br />
-        Department of Economics, MIT • Cambridge, MA</p>
-      </section>
-    </main>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:talesara@mit.edu">talesara@mit.edu</a><br />
+      Department of Economics, MIT • Cambridge, MA</p>
+    </section>
 
     <footer class="site">
       <p>&copy; <script>document.write(new Date().getFullYear())</script> Ishaana Talesara.</p>
     </footer>
-  </div>
+  </main>
 </body>
 </html>
