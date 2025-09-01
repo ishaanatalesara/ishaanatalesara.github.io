@@ -23,9 +23,9 @@
 
     .wrapper {
       display: grid;
-      grid-template-columns: 260px 1fr;
+      grid-template-columns: 300px 1fr; /* widened sidebar to accommodate larger photo */
       gap: 28px;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 0 20px;
     }
@@ -43,16 +43,16 @@
       flex-direction: column;
       align-items: flex-start;
     }
-    .name { font-size: 1.6rem; margin: 0 0 12px; text-align: left; }
+    .name { font-size: 1.6rem; margin: 0 0 8px; text-align: left; }
     .headshot {
-      width: 180px;
+      width: 240px;           /* increased size */
       height: auto;
       object-fit: contain;
       border: 1px solid var(--border);
-      margin: 0 0 8px;
+      margin: 0 0 4px;
     }
-    .tagline { margin: 8px 0 16px; color: var(--muted); font-size: .95rem; text-align: left; }
-    .quicklinks { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+    .tagline { margin: 2px 0; color: var(--muted); font-size: .95rem; text-align: left; }
+    .quicklinks { list-style: none; padding: 0; margin: 12px 0 0; display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
     .quicklinks a { color: var(--link); text-decoration: none; }
     .quicklinks a:hover { text-decoration: underline; }
 
