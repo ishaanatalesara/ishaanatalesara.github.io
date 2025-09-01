@@ -1,77 +1,189 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ishaana Talesara — Economist</title>
-  <meta name="description" content="Personal academic website for Ishaana Talesara: research, teaching, and contact.">
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Personal academic website: research, teaching, and contact." />
+  <style>
+    /* ---- Minimal, clean typographic style (no boxes) ---- */
+    :root {
+      --text: #111;
+      --muted: #666;
+      --link: #0a7cff;
+      --border: #eaeaea;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .wrap {
+      width: min(860px, 92vw);
+      margin: 0 auto;
+      padding: 28px 0 40px;
+    }
+    header.site {
+      padding: 10px 0 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .name { font-size: clamp(1.8rem, 3vw, 2.2rem); margin: 0; }
+    .tagline { margin: 4px 0 0; color: var(--muted); }
+    nav.top {
+      margin-top: 10px;
+      display: flex; flex-wrap: wrap; gap: 14px;
+    }
+    nav.top a { color: var(--link); text-decoration: none; }
+    nav.top a:hover { text-decoration: underline; }
+
+    main { padding-top: 20px; }
+
+    /* Sections */
+    section { margin: 24px 0; }
+    h2 { font-size: 1.25rem; margin: 0 0 8px; }
+
+    /* Bio as plain paragraph (no label/box) */
+    .bio { margin: 0 0 12px; }
+
+    /* Headshot + quick links inline on wide screens */
+    .intro {
+      display: grid; gap: 16px; align-items: start;
+      grid-template-columns: 130px 1fr; /* image + text */
+    }
+    @media (max-width: 680px) { .intro { grid-template-columns: 1fr; } }
+    .headshot { width: 130px; height: 130px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); }
+    .quicklinks { margin: 6px 0 0; padding: 0; list-style: none; display: flex; gap: 12px; flex-wrap: wrap; }
+    .quicklinks a { color: var(--link); text-decoration: none; }
+    .quicklinks a:hover { text-decoration: underline; }
+
+    /* Papers */
+    .papers { list-style: none; padding: 0; margin: 0; }
+    .paper { margin: 14px 0 18px; }
+    .paper-title { font-weight: 600; }
+    .paper-meta { color: var(--muted); margin-left: 6px; }
+    .paper-links { display: inline-flex; gap: 10px; margin-left: 8px; }
+    .paper-links a { color: var(--link); text-decoration: none; }
+    .paper-links a:hover { text-decoration: underline; }
+
+    /* Collapsible abstract */
+    details { margin-top: 6px; }
+    details > summary {
+      cursor: pointer;
+      list-style: none;
+      position: relative;
+      display: inline-block;
+      user-select: none;
+      color: var(--link);
+    }
+    details > summary::marker { display: none; }
+    details > summary::after {
+      content: " ▾"; /* caret */
+      color: var(--muted);
+    }
+    details[open] > summary::after { content: " ▴"; }
+    details .abs { margin: 8px 0 0; color: #222; }
+
+    /* Teaching list */
+    .teaching ul { margin: 8px 0 0; }
+
+    footer.site { border-top: 1px solid var(--border); margin-top: 24px; padding-top: 16px; color: var(--muted); font-size: .95rem; }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1 class="site-title">Ishaana Talesara</h1>
-      <p class="site-tagline">PhD Candidate in Economics, MIT</p>
-      <nav class="site-nav">
+  <div class="wrap">
+    <header class="site">
+      <h1 class="name">Ishaana Talesara</h1>
+      <p class="tagline">PhD Candidate in Economics, MIT</p>
+      <nav class="top">
         <a href="#research">Research</a>
         <a href="#teaching">Teaching</a>
         <a href="#cv">CV</a>
         <a href="#contact">Contact</a>
       </nav>
-    </div>
-  </header>
+    </header>
 
-  <main class="container grid">
-    <aside class="left">
-      <img src="headshot.jpg" alt="Headshot of Ishaana Talesara" class="headshot" />
-      <ul class="links">
-        <li><a href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar</a></li>
-        <li><a href="https://ideas.repec.org/" target="_blank" rel="noopener">RePEc/IDEAS</a></li>
-        <li><a href="https://github.com/ishaanatalesara" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="https://twitter.com" target="_blank" rel="noopener">X/Twitter</a></li>
-      </ul>
-    </aside>
-
-    <section class="right">
-      <section id="bio" class="card">
-        <h2>Bio</h2>
-        <p>I am a PhD candidate in Economics at MIT. My research spans labor economics and macro-labor, with a focus on layoff risk, worker beliefs, and minimum wage policy.</p>
+    <main>
+      <!-- Plain bio (no label) + headshot/links -->
+      <section class="intro">
+        <img src="headshot.jpg" alt="Headshot of Ishaana Talesara" class="headshot" />
+        <div>
+          <p class="bio">I am a PhD candidate in Economics at MIT. My research is in labor economics and macroeconomics. Before my PhD, I completed my undergraduate education at The University of Texas at Austin.</p>
+          <ul class="quicklinks">
+            <li><a href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar</a></li>
+            <li><a href="https://ideas.repec.org/" target="_blank" rel="noopener">RePEc/IDEAS</a></li>
+            <li><a href="https://github.com/ishaanatalesara" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="mailto:ishaanatalesara@mit.edu">Email</a></li>
+          </ul>
+        </div>
       </section>
 
-      <section id="research" class="card">
+      <section id="research">
         <h2>Research</h2>
-        <ul class="pubs">
-          <li><strong>Layoff Risk, Worker Beliefs, and Job Search</strong> (Job Market Paper). <em>Draft coming soon.</em></li>
-          <li><strong>Tipped Minimum Wage and Firm Outcomes</strong> (with coauthors). <em>In progress.</em></li>
+        <ul class="papers">
+          <li class="paper">
+            <span class="paper-title">
+              <a href="breadwinning.pdf" target="_blank" rel="noopener">Breadwinning Norms: Experimental Evidence from India</a>
+            </span>
+            <span class="paper-meta">(with Kailash Rajah) — Draft</span>
+            <span class="paper-links">
+              <!-- add/remove links as needed -->
+              <!-- <a href="#">Online appendix</a> -->
+              <!-- <a href="#">Slides</a> -->
+            </span>
+            <details>
+              <summary>Abstract</summary>
+              <div class="abs">
+                <p>Short abstract goes here. You can include 3–6 lines summarizing the question, design, and main finding. Keep it concise, with one key number if possible.</p>
+              </div>
+            </details>
+          </li>
+
+          <li class="paper">
+            <span class="paper-title">Worker Beliefs about Employment Risk </span>
+            <span class="paper-meta">— Job Market Paper (draft coming soon)</span>
+            <span class="paper-links">
+              <!-- <a href="jmp.pdf" target="_blank" rel="noopener">PDF</a> -->
+              <!-- <a href="slides_jmp.pdf" target="_blank" rel="noopener">Slides</a> -->
+            </span>
+            <details>
+              <summary>Abstract</summary>
+              <div class="abs">
+                <p>JMP abstract placeholder. We’ll add the actual text once the draft is ready.</p>
+              </div>
+            </details>
+          </li>
+
+          <li class="paper">
+            <span class="paper-title">Tipped Minimum Wage and Firm Outcomes</span>
+            <span class="paper-meta">(with coauthors) — In progress</span>
+            <details>
+              <summary>Abstract</summary>
+              <div class="abs">
+                <p>Work‑in‑progress abstract placeholder.</p>
+              </div>
+            </details>
+          </li>
         </ul>
       </section>
 
-      <section id="teaching" class="card">
-        <h2>Teaching</h2>
-        <ul>
-          <li>Labor Economics (TA), MIT Sloan</li>
-          <li>Applied Econometrics (TA), MIT</li>
-        </ul>
-      </section>
 
-      <section id="cv" class="card">
+      <section id="cv">
         <h2>CV</h2>
-        <p><a href="cv.pdf">Download CV (PDF)</a> &middot; Last updated <time datetime="2025-09-01">September 01, 2025</time></p>
+        <p><a href="cv.pdf" target="_blank" rel="noopener">Download CV (PDF)</a></p>
       </section>
 
-      <section id="contact" class="card">
+      <section id="contact">
         <h2>Contact</h2>
-        <p>Email: <a href="mailto:ishaanatalesara@mit.edu">ishaanatalesara@mit.edu</a><br>
-        Sloan School of Management, MIT<br>
-        Cambridge, MA</p>
+        <p>Email: <a href="mailto:talesara@mit.edu">talesara@mit.edu</a><br />
+        Department of Economics, MIT • Cambridge, MA</p>
       </section>
-    </section>
-  </main>
+    </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2025 Ishaana Talesara.</p>
+    <footer class="site">
+      <p>&copy; <script>document.write(new Date().getFullYear())</script> Ishaana Talesara.</p>
+    </footer>
   </div>
-  </footer>
 </body>
 </html>
