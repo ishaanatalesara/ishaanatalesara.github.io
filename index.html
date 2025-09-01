@@ -9,7 +9,7 @@
     :root {
       --text: #111;
       --muted: #666;
-      --link: #0a7cff;
+      --link: #0077cc; /* prettier blue for all links */
       --border: #eaeaea;
     }
     * { box-sizing: border-box; }
@@ -23,7 +23,7 @@
 
     .wrapper {
       display: grid;
-      grid-template-columns: 300px 1fr; /* widened sidebar to accommodate larger photo */
+      grid-template-columns: 300px 1fr;
       gap: 28px;
       max-width: 1100px;
       margin: 0 auto;
@@ -45,7 +45,7 @@
     }
     .name { font-size: 1.6rem; margin: 0 0 8px; text-align: left; }
     .headshot {
-      width: 240px;           /* increased size */
+      width: 240px;
       height: auto;
       object-fit: contain;
       border: 1px solid var(--border);
@@ -54,7 +54,7 @@
     .tagline { margin: 2px 0; color: var(--muted); font-size: .95rem; text-align: left; }
     .quicklinks { list-style: none; padding: 0; margin: 12px 0 0; display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
     .quicklinks a { color: var(--link); text-decoration: none; }
-    .quicklinks a:hover { text-decoration: underline; }
+    .quicklinks a:hover { text-decoration: none; }
 
     main.content { padding: 28px 0; max-width: 760px; }
     section { margin: 24px 0; }
@@ -64,10 +64,12 @@
     .papers { list-style: none; padding: 0; margin: 0; }
     .paper { margin: 14px 0 18px; }
     .paper-title { font-weight: 600; }
+    .paper-title a { color: var(--link); text-decoration: none; }
+    .paper-title a:hover { text-decoration: none; }
     .paper-meta { color: var(--muted); margin-left: 6px; }
 
     details { margin-top: 6px; }
-    details > summary { cursor: pointer; list-style: none; display: inline-block; user-select: none; color: var(--link); }
+    details > summary { cursor: pointer; list-style: none; display: inline-block; user-select: none; color: var(--link); text-decoration: none; }
     details > summary::after { content: " ▾"; color: var(--muted); }
     details[open] > summary::after { content: " ▴"; }
     details .abs { margin: 8px 0 0; color: #222; }
