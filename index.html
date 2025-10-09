@@ -5,92 +5,97 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ishaana Talesara — Economist</title>
   <meta name="description" content="Personal academic website: research, teaching, and contact." />
-  <style>
-    :root {
-      --text: #111;
-      --muted: #666;
-      --blue-link: #0077cc; /* pretty blue for paper links */
-      --yellow-link: #c79300; /* dark yellow for everything else */
-      --border: #eaeaea;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      color: var(--text);
-      line-height: 1.6;
-      background: #fff;
-    }
+<style>
+  :root{
+    --text:#111; --muted:#666;
+    --blue-link:#0077cc;  /* paper links */
+    --yellow-link:#c79300; /* everything else */
+    --border:#eaeaea;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+    color:var(--text); line-height:1.6; background:#fff;
+  }
 
-    .wrapper {
-      display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 28px;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    @media (max-width: 800px) {
-      .wrapper { grid-template-columns: 1fr; }
-      aside.sidebar { position: relative; top: auto; height: auto; }
-    }
+  /* ——— Layout ——— */
+  .wrapper{
+    display:grid;
+    grid-template-columns:300px 1fr;
+    gap:28px;
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 20px;
+  }
 
-    aside.sidebar {
-      padding: 24px 0;
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .name { font-size: 1.6rem; margin: 0 0 8px; text-align: left; }
-    .headshot {
-      width: 240px;
-      height: auto;
-      object-fit: contain;
-      border: 1px solid var(--border);
-      margin: 0 0 4px;
-    }
-    .tagline { margin: 2px 0; color: var(--muted); font-size: .95rem; text-align: left; }
-    .quicklinks { list-style: none; padding: 0; margin: 12px 0 0; display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+  /* Sidebar (desktop) */
+  aside.sidebar{
+    padding:24px 0;
+    position:sticky; top:0;
+    height:100vh;               /* fills viewport on desktop */
+    display:flex; flex-direction:column; align-items:flex-start;
+  }
+  .name{font-size:1.6rem; margin:0 0 8px}
+  .headshot{
+    width:240px; height:auto; object-fit:contain;
+    border:1px solid var(--border); margin:0 0 4px;
+    max-width:100%;            /* never overflow the column */
+  }
+  .tagline{margin:2px 0; color:var(--muted); font-size:.95rem}
+  .quicklinks{list-style:none; padding:0; margin:12px 0 0; display:flex; flex-direction:column; gap:6px}
 
-    /* Unified link styling */
-    a {
-      color: var(--yellow-link);
-      text-decoration: none;
+  /* Links */
+  a{color:var(--yellow-link); text-decoration:none}
+  a:hover{color:#946b00}
+  .paper-title a{color:var(--blue-link)}
+  .paper-title a:hover{color:#005999}
+
+  /* Content */
+  main.content{padding:28px 0; max-width:760px}
+  section{margin:24px 0}
+  h2{font-size:1.25rem; margin:0 0 8px}
+  .bio{margin:0 0 12px}
+  .papers{list-style:none; padding:0; margin:0}
+  .paper{margin:14px 0 18px}
+  .paper-title{font-weight:600}
+  .paper-meta{color:var(--muted); margin-left:6px}
+  details{margin-top:6px}
+  details>summary{cursor:pointer; list-style:none; display:inline-block; user-select:none; color:var(--yellow-link)}
+  details>summary::after{content:" ▾"; color:var(--muted)}
+  details[open]>summary::after{content:" ▴"}
+  details .abs{margin:8px 0 0; color:#222}
+  footer.site{border-top:1px solid var(--border); margin-top:24px; padding-top:16px; color:var(--muted); font-size:.95rem}
+
+  /* ——— Mobile improvements ——— */
+  @media (max-width: 800px){
+    .wrapper{
+      grid-template-columns:1fr;   /* single column */
+      gap:18px;
+      padding:0 16px;
+      max-width:720px;             /* keep readable line-length */
     }
-    a:hover {
-      color: #946b00; /* darker golden hover */
-      text-decoration: none;
+    aside.sidebar{
+      position:relative;           /* turn off sticky on mobile */
+      top:auto; height:auto;
+      padding:16px 0 0;
+      align-items:flex-start;
     }
-
-    /* Paper title links use blue */
-    .paper-title a {
-      color: var(--blue-link);
+    .name{font-size:1.35rem; margin:0 0 6px}
+    .headshot{
+      width:min(65vw, 320px);      /* scale photo to screen */
+      margin:4px 0 6px;
     }
-    .paper-title a:hover {
-      color: #005999;
-    }
+    .tagline{font-size:.92rem; margin:2px 0}
+    main.content{padding:6px 0 20px; max-width:unset}
+    section{margin:18px 0}
+    h2{font-size:1.15rem}
+    .paper{margin:12px 0 14px}
+  }
 
-    main.content { padding: 28px 0; max-width: 760px; }
-    section { margin: 24px 0; }
-    h2 { font-size: 1.25rem; margin: 0 0 8px; }
-    .bio { margin: 0 0 12px; }
-
-    .papers { list-style: none; padding: 0; margin: 0; }
-    .paper { margin: 14px 0 18px; }
-    .paper-title { font-weight: 600; }
-    .paper-meta { color: var(--muted); margin-left: 6px; }
-
-    details { margin-top: 6px; }
-    details > summary { cursor: pointer; list-style: none; display: inline-block; user-select: none; color: var(--yellow-link); }
-    details > summary::after { content: " ▾"; color: var(--muted); }
-    details[open] > summary::after { content: " ▴"; }
-    details .abs { margin: 8px 0 0; color: #222; }
-
-    footer.site { border-top: 1px solid var(--border); margin-top: 24px; padding-top: 16px; color: var(--muted); font-size: .95rem; }
-  </style>
+  /* Prevent long URLs/emails from breaking layout on tiny screens */
+  .paper-title a, .paper-meta, .bio, #contact p { word-wrap:break-word; overflow-wrap:anywhere; }
+</style>
 </head>
 <body>
   <div class="wrapper">
