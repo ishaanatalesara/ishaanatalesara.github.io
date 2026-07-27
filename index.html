@@ -82,6 +82,10 @@
   .paper-title a{color:var(--blue-link)}
   .paper-title a:hover{color:#005999}
 
+  /* Coauthor links: stay muted like the surrounding text, warm on hover */
+  .paper-meta a{color:inherit; text-decoration:underline; text-decoration-color:#ccc; text-underline-offset:2px}
+  .paper-meta a:hover{color:var(--yellow-link); text-decoration-color:currentColor}
+
   /* Content */
   main.content{padding:28px 0; max-width:760px}
   section{margin:24px 0}
@@ -137,6 +141,7 @@
       <p class="tagline">Department of Economics</p>
       <p class="tagline">Massachusetts Institute of Technology</p>
       <ul class="quicklinks">
+        <li><a href="CV_Talesara.pdf" target="_blank" rel="noopener">CV</a></li>
         <li><a href="https://economics.mit.edu/people/phd-students/ishaana-talesara" target="_blank" rel="noopener">MIT Website</a></li>
         <li><a href="mailto:talesara@mit.edu">Email</a></li>
       </ul>
@@ -144,9 +149,8 @@
 
     <main class="content">
       <section class="bio">
-        <p>I am a PhD candidate in Economics at MIT. My research is in labor economics and macroeconomics. Before my PhD, I completed my undergraduate education at The University of Texas at Austin.</p>
-        <p>I will join the Economics Department at Texas A&M University as an Assistant Professor in Fall 2026.</p>
-
+        <p>I will join the Economics Department at Texas A&amp;M University as an Assistant Professor in Fall 2026.</p>
+        <p>I completed my PhD in Economics at MIT in 2026. My research is in labor economics and macroeconomics. Before my PhD, I completed my undergraduate education at The University of Texas at Austin.</p>
       </section>
 
       <section id="research">
@@ -156,7 +160,7 @@
             <span class="paper-title">
               <a href="jmp_talesara.pdf" target="_blank" rel="noopener">Worker Beliefs about Layoff Risk</a>
             </span>
-            <span class="paper-meta"> (with Lukas Lehner and Arthur Wickard) </span>
+            <span class="paper-meta"> (with <a href="https://lukaslehner.github.io/" target="_blank" rel="noopener">Lukas Lehner</a> and <a href="https://sites.google.com/view/arthurwickard" target="_blank" rel="noopener">Arthur Wickard</a>) </span>
             <details>
               <summary>Abstract</summary>
               <div class="abs">
@@ -169,7 +173,7 @@
             <span class="paper-title">
               <a href="monopsony.pdf" target="_blank" rel="noopener">Monopsony with Dynamic Wage Contracts</a>              
             </span>
-            <span class="paper-meta">(with Arthur Wickard)
+            <span class="paper-meta">(with <a href="https://sites.google.com/view/arthurwickard" target="_blank" rel="noopener">Arthur Wickard</a>)</span>
             <details>
               <summary>Abstract</summary>
               <div class="abs">
@@ -182,7 +186,7 @@
             <span class="paper-title">
               <a href="breadwinning.pdf" target="_blank" rel="noopener">Breadwinning Norms: Experimental Evidence from India</a>
             </span>
-            <span class="paper-meta">(with Kailash Rajah)</span>
+            <span class="paper-meta">(with <a href="https://kailashrajah.com/" target="_blank" rel="noopener">Kailash Rajah</a>)</span>
             <details>
               <summary>Abstract</summary>
               <div class="abs">
@@ -194,7 +198,7 @@
             <span class="paper-title">
                 <a href="https://www.irs.gov/pub/irs-soi/26rpTippedMinimumWage.pdf" target="_blank" rel="noopener">The Tipped Minimum Wage</a>
             </span>
-            <span class="paper-meta">(with Arthur Wickard) </span>
+            <span class="paper-meta">(with <a href="https://sites.google.com/view/arthurwickard" target="_blank" rel="noopener">Arthur Wickard</a>) </span>
             <details>
               <summary>Abstract</summary>
               <div class="abs">
@@ -211,7 +215,7 @@
         <ul class="papers">
           <li class="paper">
             <span class="paper-title">The Labor Market Consequences of Moving Home</span>
-            <span class="paper-meta">(with Nathan Lazarus and Arthur Wickard)  <em>Approved US Census RDC Project
+            <span class="paper-meta">(with <a href="https://www.nathanlazarus.com/" target="_blank" rel="noopener">Nathan Lazarus</a> and <a href="https://sites.google.com/view/arthurwickard" target="_blank" rel="noopener">Arthur Wickard</a>)  <em>Approved US Census RDC Project
 </em></span>
           </li>
         </ul>
@@ -225,7 +229,7 @@
             <span class="paper-title">
               <a href="https://www.aeaweb.org/articles?id=10.1257/app.20200210" target="_blank" rel="noopener">Inversions in US Presidential Elections: 1836–2016</a>
             </span>
-            <span class="paper-meta"> (with Michael Geruso and Dean Spears). <em>American Economic Journal: Applied Economics</em>, vol. 14, January 2022.</span>
+            <span class="paper-meta"> (with <a href="https://mikegeruso.com/" target="_blank" rel="noopener">Michael Geruso</a> and <a href="https://deanspears.net/" target="_blank" rel="noopener">Dean Spears</a>). <em>American Economic Journal: Applied Economics</em>, vol. 14, January 2022.</span>
             <details>
               <summary>Abstract</summary>
               <div class="abs">
@@ -235,11 +239,6 @@
           </li>
       
         </ul>
-      </section>
-
-      <section id="cv">
-        <h2>CV</h2>
-        <p><a href="CV_Talesara.pdf" target="_blank" rel="noopener">Download CV (PDF)</a></p>
       </section>
 
       <section id="contact">
